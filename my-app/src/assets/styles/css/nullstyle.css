@@ -68,9 +68,4 @@ body {
 	min-height: 100vh;
 	scroll-behavior: smooth;
 	text-rendering: optimizeSpeed;
-	line-height: 1.5;
-	font-family: Montserrat;
-	color:  #252B42;
-	font-size: 14px;
-	font-weight: 500;
 }
