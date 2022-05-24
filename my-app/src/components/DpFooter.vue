@@ -11,27 +11,42 @@
             <nav class="footer-top__menu">
               <ul class="footer-top__list">
                 <li class="footer-top__item info-item">
-                  <router-link to="/" class="info-item__link"
+                  <router-link
+                    to="/"
+                    class="info-item__link"
+                    @click="CHANGE_TO_ACTIVE_MAIN"
                     >Главная</router-link
                   >
                 </li>
                 <li class="footer-top__item info-item">
-                  <router-link to="/gallery" class="info-item__link"
+                  <router-link
+                    to="/gallery"
+                    class="info-item__link"
+                    @click="CHANGE_TO_ACTIVE_GALLERY"
                     >Галерея</router-link
                   >
                 </li>
                 <li class="footer-top__item info-item">
-                  <router-link to="/projects" class="info-item__link"
+                  <router-link
+                    to="/projects"
+                    class="info-item__link"
+                    @click="CHANGE_TO_ACTIVE_PROJECTS"
                     >Проекты</router-link
                   >
                 </li>
                 <li class="footer-top__item info-item">
-                  <router-link to="/sertificates" class="info-item__link"
+                  <router-link
+                    to="/sertificates"
+                    class="info-item__link"
+                    @click="CHANGE_TO_ACTIVE_SERTIFICATES"
                     >Сертификаты</router-link
                   >
                 </li>
                 <li class="footer-top__item info-item">
-                  <router-link to="/contacts" class="info-item__link"
+                  <router-link
+                    to="/contacts"
+                    class="info-item__link"
+                    @click="CHANGE_TO_ACTIVE_CONTACTS"
                     >Контакты</router-link
                   >
                 </li>
@@ -122,8 +137,19 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "DpFooter",
+  methods: {
+    ...mapActions([
+      "CHANGE_TO_ACTIVE_MAIN",
+      "CHANGE_TO_ACTIVE_GALLERY",
+      "CHANGE_TO_ACTIVE_PROJECTS",
+      "CHANGE_TO_ACTIVE_SERTIFICATES",
+      "CHANGE_TO_ACTIVE_CONTACTS",
+    ]),
+  },
 };
 </script>
 

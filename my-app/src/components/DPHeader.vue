@@ -6,41 +6,50 @@
           <img src="..\assets\images\01.svg" alt="logo" />
         </div>
         <nav class="header__nav-items-wrapper">
-          <div class="header__nav-item nav-item" @click="itemActiveMain">
-            <div v-if="isActiveMain" class="nav-item__line" />
+          <div class="header__nav-item nav-item" @click="CHANGE_TO_ACTIVE_MAIN">
+            <div v-if="MAIN" class="nav-item__line" />
             <router-link to="/" class="nav-item__link">главная</router-link>
-            <div v-if="isActiveMain" class="nav-item__line" />
-          </div>
-          <div class="header__nav-item nav-item" @click="itemActiveGallery">
-            <div v-if="isActiveGallery" class="nav-item__line" />
-            <router-link to="/gallery" class="nav-item__link"
-              >галерея</router-link
-            >
-            <div v-if="isActiveGallery" class="nav-item__line" />
-          </div>
-          <div class="header__nav-item nav-item" @click="itemActiveProjects">
-            <div v-if="isActiveProjects" class="nav-item__line" />
-            <router-link to="/projects" class="nav-item__link"
-              >проекты</router-link
-            >
-            <div v-if="isActiveProjects" class="nav-item__line" />
+            <div v-if="MAIN" class="nav-item__line" />
           </div>
           <div
             class="header__nav-item nav-item"
-            @click="itemActiveSertificates"
+            @click="CHANGE_TO_ACTIVE_GALLERY"
           >
-            <div v-if="isActiveSertificates" class="nav-item__line" />
+            <div v-if="GALLERY" class="nav-item__line" />
+            <router-link to="/gallery" class="nav-item__link"
+              >галерея</router-link
+            >
+            <div v-if="GALLERY" class="nav-item__line" />
+          </div>
+          <div
+            class="header__nav-item nav-item"
+            @click="CHANGE_TO_ACTIVE_PROJECTS"
+          >
+            <div v-if="PROJECTS" class="nav-item__line" />
+            <router-link to="/projects" class="nav-item__link"
+              >проекты</router-link
+            >
+            <div v-if="PROJECTS" class="nav-item__line" />
+          </div>
+          <div
+            class="header__nav-item nav-item"
+            @click="CHANGE_TO_ACTIVE_SERTIFICATES"
+          >
+            <div v-if="SERTIFICATES" class="nav-item__line" />
             <router-link to="/sertificates" class="nav-item__link"
               >сертификаты</router-link
             >
-            <div v-if="isActiveSertificates" class="nav-item__line" />
+            <div v-if="SERTIFICATES" class="nav-item__line" />
           </div>
-          <div class="header__nav-item nav-item" @click="itemActiveContacts">
-            <div v-if="isActiveContacts" class="nav-item__line" />
+          <div
+            class="header__nav-item nav-item"
+            @click="CHANGE_TO_ACTIVE_CONTACTS"
+          >
+            <div v-if="CONTACTS" class="nav-item__line" />
             <router-link to="/contacts" class="nav-item__link"
               >контакты</router-link
             >
-            <div v-if="isActiveContacts" class="nav-item__line" />
+            <div v-if="CONTACTS" class="nav-item__line" />
           </div>
         </nav>
       </div>
@@ -49,53 +58,65 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "DpHeader",
   data() {
     return {
-      isActiveMain: true,
-      isActiveGallery: false,
-      isActiveProjects: false,
-      isActiveSertificates: false,
-      isActiveContacts: false,
+      //isActiveMain: true,
+      //isActiveGallery: false,
+      //isActiveProjects: false,
+      //isActiveSertificates: false,
+      //isActiveContacts: false,
     };
   },
+  computed: {
+    ...mapGetters(["MAIN", "GALLERY", "PROJECTS", "SERTIFICATES", "CONTACTS"]),
+  },
   methods: {
-    itemActiveMain() {
-      this.isActiveMain = true;
-      this.isActiveGallery = false;
-      this.isActiveProjects = false;
-      this.isActiveSertificates = false;
-      this.isActiveContacts = false;
-    },
-    itemActiveGallery() {
-      this.isActiveMain = false;
-      this.isActiveGallery = true;
-      this.isActiveProjects = false;
-      this.isActiveSertificates = false;
-      this.isActiveContacts = false;
-    },
-    itemActiveProjects() {
-      this.isActiveMain = false;
-      this.isActiveGallery = false;
-      this.isActiveProjects = true;
-      this.isActiveSertificates = false;
-      this.isActiveContacts = false;
-    },
-    itemActiveSertificates() {
-      this.isActiveMain = false;
-      this.isActiveGallery = false;
-      this.isActiveProjects = false;
-      this.isActiveSertificates = true;
-      this.isActiveContacts = false;
-    },
-    itemActiveContacts() {
-      this.isActiveMain = false;
-      this.isActiveGallery = false;
-      this.isActiveProjects = false;
-      this.isActiveSertificates = false;
-      this.isActiveContacts = true;
-    },
+    ...mapActions([
+      "CHANGE_TO_ACTIVE_MAIN",
+      "CHANGE_TO_ACTIVE_GALLERY",
+      "CHANGE_TO_ACTIVE_PROJECTS",
+      "CHANGE_TO_ACTIVE_SERTIFICATES",
+      "CHANGE_TO_ACTIVE_CONTACTS",
+    ]),
+    //itemActiveMain() {
+    //  this.isActiveMain = true;
+    //  this.isActiveGallery = false;
+    //  this.isActiveProjects = false;
+    //  this.isActiveSertificates = false;
+    //  this.isActiveContacts = false;
+    //},
+    //itemActiveGallery() {
+    //  this.isActiveMain = false;
+    //  this.isActiveGallery = true;
+    //  this.isActiveProjects = false;
+    //  this.isActiveSertificates = false;
+    //  this.isActiveContacts = false;
+    //},
+    //itemActiveProjects() {
+    //  this.isActiveMain = false;
+    //  this.isActiveGallery = false;
+    //  this.isActiveProjects = true;
+    //  this.isActiveSertificates = false;
+    //  this.isActiveContacts = false;
+    //},
+    //itemActiveSertificates() {
+    //  this.isActiveMain = false;
+    //  this.isActiveGallery = false;
+    //  this.isActiveProjects = false;
+    //  this.isActiveSertificates = true;
+    //  this.isActiveContacts = false;
+    //},
+    //itemActiveContacts() {
+    //  this.isActiveMain = false;
+    //  this.isActiveGallery = false;
+    //  this.isActiveProjects = false;
+    //  this.isActiveSertificates = false;
+    //  this.isActiveContacts = true;
+    //},
   },
 };
 </script>
