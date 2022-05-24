@@ -8,17 +8,21 @@
         <nav class="header__nav-items-wrapper">
           <div class="header__nav-item nav-item" @click="itemActiveMain">
             <div v-if="isActiveMain" class="nav-item__line" />
-            <a href="" class="nav-item__link">главная</a>
+            <router-link to="/" class="nav-item__link">главная</router-link>
             <div v-if="isActiveMain" class="nav-item__line" />
           </div>
           <div class="header__nav-item nav-item" @click="itemActiveGallery">
             <div v-if="isActiveGallery" class="nav-item__line" />
-            <a href="" class="nav-item__link">галерея</a>
+            <router-link to="/gallery" class="nav-item__link"
+              >галерея</router-link
+            >
             <div v-if="isActiveGallery" class="nav-item__line" />
           </div>
           <div class="header__nav-item nav-item" @click="itemActiveProjects">
             <div v-if="isActiveProjects" class="nav-item__line" />
-            <a href="" class="nav-item__link">проекты</a>
+            <router-link to="/projects" class="nav-item__link"
+              >проекты</router-link
+            >
             <div v-if="isActiveProjects" class="nav-item__line" />
           </div>
           <div
@@ -26,12 +30,16 @@
             @click="itemActiveSertificates"
           >
             <div v-if="isActiveSertificates" class="nav-item__line" />
-            <a href="" class="nav-item__link">сертификаты</a>
+            <router-link to="/sertificates" class="nav-item__link"
+              >сертификаты</router-link
+            >
             <div v-if="isActiveSertificates" class="nav-item__line" />
           </div>
           <div class="header__nav-item nav-item" @click="itemActiveContacts">
             <div v-if="isActiveContacts" class="nav-item__line" />
-            <a href="" class="nav-item__link">контакты</a>
+            <router-link to="/contacts" class="nav-item__link"
+              >контакты</router-link
+            >
             <div v-if="isActiveContacts" class="nav-item__line" />
           </div>
         </nav>
@@ -104,27 +112,53 @@ export default {
     padding: 29px 0;
   }
 
+  @media (max-width: 788px) {
+    &__wrapper {
+      padding: 19px 0;
+    }
+  }
+
   &__logo {
+    position: relative;
+    width: 70px;
+    height: 44px;
   }
 
   &__logo img {
-    width: 70px;
-    height: 44px;
+    position: absolute;
   }
 
   &__nav-items-wrapper {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -30px;
+    width: 66%;
+    margin: -10px -30px;
   }
-  @media (min width: 1300) {
+
+  @media (max-width: 370px) {
     &__nav-items-wrapper {
-      padding-right: 134px;
+      justify-content: center;
+    }
+
+    //&__logo {
+    //  align-self: center;
+    //}
+  }
+
+  @media (max-width: 620px) {
+    &__nav-items-wrapper {
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 500px) {
+    &__nav-items-wrapper {
+      width: 90%;
     }
   }
 
   &__nav-item {
-    margin: 0 30px;
+    margin: 10px 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;

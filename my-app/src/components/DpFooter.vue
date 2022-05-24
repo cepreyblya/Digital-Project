@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <div class="footer__top footer-top">
-      <div class="footer-top__container _container">
+      <div class="footer-top__container">
         <div class="footer-top__body">
           <div class="footer-top__logo">
             <img src="..\assets\images\footer\logo.svg" alt="logo" />
@@ -11,19 +11,29 @@
             <nav class="footer-top__menu">
               <ul class="footer-top__list">
                 <li class="footer-top__item info-item">
-                  <a class="info-item__link">Главная</a>
+                  <router-link to="/" class="info-item__link"
+                    >Главная</router-link
+                  >
                 </li>
                 <li class="footer-top__item info-item">
-                  <a class="info-item__link">Галерея</a>
+                  <router-link to="/gallery" class="info-item__link"
+                    >Галерея</router-link
+                  >
                 </li>
                 <li class="footer-top__item info-item">
-                  <a class="info-item__link">Проекты</a>
+                  <router-link to="/projects" class="info-item__link"
+                    >Проекты</router-link
+                  >
                 </li>
                 <li class="footer-top__item info-item">
-                  <a class="info-item__link">Сертификаты</a>
+                  <router-link to="/sertificates" class="info-item__link"
+                    >Сертификаты</router-link
+                  >
                 </li>
                 <li class="footer-top__item info-item">
-                  <a class="info-item__link">Контакты</a>
+                  <router-link to="/contacts" class="info-item__link"
+                    >Контакты</router-link
+                  >
                 </li>
               </ul>
             </nav>
@@ -126,6 +136,12 @@ export default {
     padding: 58px 0;
   }
 
+  @media (max-width: 788px) {
+    &__top {
+      padding: 32px 0;
+    }
+  }
+
   &__line {
     opacity: 0.1;
     border: 1px solid #ffffff;
@@ -145,15 +161,22 @@ export default {
 }
 .footer-top {
   &__container {
+    max-width: 1236px;
+    padding: 0 15px;
+    margin: 0 auto;
+    box-sizing: content-box;
   }
 
   &__body {
-    margin-left: -18px;
+    margin: 0 -15px;
 
     display: flex;
-    align-items: top;
     justify-content: space-between;
     flex-wrap: wrap;
+
+    > * {
+      margin: 0 15px;
+    }
   }
 
   &__logo {
@@ -161,7 +184,13 @@ export default {
 
   &__column {
     > *:not(:last-child) {
-      padding-bottom: 25px;
+      padding-bottom: 18px;
+    }
+  }
+
+  @media (max-width: 740px) {
+    &__column:not(:last-child) {
+      margin-bottom: 20px;
     }
   }
 
@@ -169,12 +198,31 @@ export default {
     font-weight: 700;
     font-size: 16px;
     line-height: 125%;
+    letter-spacing: 0.03em;
   }
 
   &__menu {
   }
 
   &__list {
+  }
+
+  @media (max-width: 572px) {
+    &__body {
+      justify-content: center;
+    }
+
+    &__column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__item {
@@ -202,7 +250,7 @@ export default {
 }
 
 .info-item:not(:last-child) {
-  padding-bottom: 16px;
+  padding-bottom: 10px;
 }
 
 .contact-item {

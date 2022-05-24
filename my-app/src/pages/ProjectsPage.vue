@@ -1,0 +1,12 @@
+<template>
+  <div>проекты</div>
+</template>
+
+<script>
+export default {
+  name: "ProjectsPage",
+};
+</script>
+
+<style lang="scss" scoped>
+</style>

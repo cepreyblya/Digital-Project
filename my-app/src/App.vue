@@ -1,5 +1,6 @@
 <template>
   <dp-header />
+  <router-view />
   <dp-footer />
 </template>
 
