@@ -1,8 +1,8 @@
 <template>
-  <div class="button-white">
-    <div class="button-white__text"><slot></slot></div>
+  <div class="button-black">
+    <div class="button-black__text"><slot></slot></div>
     <img
-      src="@/assets/images/UI/arrow-2-right.svg"
+      src="@/assets/images/UI/arrow-2-right-white.svg"
       alt=""
       class="button__arrow"
     />
@@ -14,14 +14,14 @@ export default {};
 </script>
 
 <style lang="scss">
-.button-white {
+.button-black {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 23px 50px;
-  max-width: 222px;
+  padding: 23px 39px;
+  //max-width: 222px;
 
-  background: #ffffff;
+  background: #000;
 
   > *:not(:last-child) {
     margin-right: 12px;
@@ -32,6 +32,8 @@ export default {};
 
     letter-spacing: 0.2em;
     text-transform: uppercase;
+
+    color: white;
   }
 
   &__arrow {

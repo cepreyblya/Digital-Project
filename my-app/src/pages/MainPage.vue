@@ -57,15 +57,91 @@
         </div>
       </div>
     </div>
+    <div class="main-page__tasks tasks">
+      <div class="tasks__container _container">
+        <div class="tasks__body">
+          <div class="tasks__title">Основные задачи</div>
+          <div class="tasks__objective-wrapper">
+            <div class="tasks__objective">
+              <div class="tasks__number">1</div>
+              <div class="tasks__description">
+                Создание комфортных условий и повышение качества обслуживания
+                клиентов
+              </div>
+            </div>
+            <div class="tasks__objective">
+              <div class="tasks__number">2</div>
+              <div class="tasks__description" style="line-height: 127%">
+                Постоянно совершенствовать качество предоставляемых услуг путем
+                обучения персонала, закупки нового оборудования и усиленной
+                рекламы на рынке
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-page__our-projects our-projects">
+      <div class="our-projects__container _container">
+        <div class="our-projects__body">
+          <div class="our-projects__title">Наши проекты</div>
+          <div class="our-projects__img-wrapper">
+            <div class="our-projects__row">
+              <div class="our-projects__item project-item">
+                <img
+                  src="@/assets/images/main/our_projects/01.jpg"
+                  alt=""
+                  class="project-item__img"
+                />
+                <div class="project-item__about">
+                  <div class="project-item__title">ДОСУГОВЫЙ ЦЕНТР</div>
+                  <a href="" class="project-item__link">
+                    <div class="project-item__more-info">подробнее</div>
+                    <img
+                      src="@/assets/images/UI/arrow-2-right-white.svg"
+                      alt=""
+                      class="project-item__arrow"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div class="our-projects__item project-item">
+                <img
+                  src="@/assets/images/main/our_projects/02.jpg"
+                  alt=""
+                  class="project-item__img"
+                />
+                <div class="project-item__about">
+                  <div class="project-item__title">ДОСУГОВЫЙ ЦЕНТР</div>
+                  <a href="" class="project-item__link">
+                    <div class="project-item__more-info">подробнее</div>
+                    <img
+                      src="@/assets/images/UI/arrow-2-right-white.svg"
+                      alt=""
+                      class="project-item__arrow"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="our-projects__row"></div>
+          </div>
+          <dp-button-black class="our-projects__button"
+            >все проекты</dp-button-black
+          >
+        </div>
+      </div>
+    </div>
   </main>
 </template>
 
 <script>
 import ArrowLeft from "../components/UI/ArrowLeft.vue";
 import ArrowRight from "../components/UI/ArrowRight.vue";
+import DpButtonBlack from "../components/UI/DpButtonBlack.vue";
 import DpButtonWhite from "../components/UI/DpButtonWhite.vue";
 export default {
-  components: { ArrowRight, ArrowLeft, DpButtonWhite },
+  components: { ArrowRight, ArrowLeft, DpButtonWhite, DpButtonBlack },
   name: "MainPage",
 };
 </script>
@@ -78,12 +154,15 @@ export default {
     padding-top: 120px;
     padding-bottom: 90px;
   }
+  &__tasks {
+  }
 }
 //==============project==========================
 .project {
   &__container {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   &__content {
@@ -154,6 +233,7 @@ export default {
   &__body {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap-reverse;
     margin: 0 -15px;
     padding: 30px 0;
     background: #fbfbfb;
@@ -208,6 +288,65 @@ export default {
 
   &__link {
     max-width: 220px;
+  }
+}
+
+//==================tasks==================
+.tasks {
+  &__container {
+  }
+
+  &__body {
+    > * {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__title {
+    font-weight: 300;
+    font-size: 64px;
+    line-height: 100%;
+
+    color: #bdbdbd;
+  }
+
+  &__objective-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__objective {
+    display: flex;
+    align-items: center;
+    max-height: 144px;
+
+    > *:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+
+  &__objective:first-child {
+    max-width: 413px;
+  }
+
+  &__objective:last-child {
+    max-width: 570px;
+  }
+
+  &__number {
+    font-family: "SFPro";
+    font-weight: 900;
+    font-size: 200px;
+
+    color: #f2f2f2;
+  }
+
+  &__description {
+    max-width: 420px;
+
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 164%;
   }
 }
 </style>

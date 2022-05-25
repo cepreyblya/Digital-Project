@@ -3,7 +3,7 @@
     <div class="header__container _container">
       <div class="header__wrapper">
         <div class="header__logo">
-          <img src="..\assets\images\01.svg" alt="logo" />
+          <img src="..\assets\images\header\01.svg" alt="logo" />
         </div>
         <nav class="header__nav-items-wrapper">
           <div class="header__nav-item nav-item" @click="CHANGE_TO_ACTIVE_MAIN">
