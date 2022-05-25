@@ -94,15 +94,20 @@
                   class="project-item__img"
                 />
                 <div class="project-item__about">
-                  <div class="project-item__title">ДОСУГОВЫЙ ЦЕНТР</div>
-                  <a href="" class="project-item__link">
-                    <div class="project-item__more-info">подробнее</div>
-                    <img
-                      src="@/assets/images/UI/arrow-2-right-white.svg"
-                      alt=""
-                      class="project-item__arrow"
-                    />
-                  </a>
+                  <div class="project-item__about-container">
+                    <div class="project-item__title">
+                      ДОСУГОВЫЙ <br />
+                      ЦЕНТР
+                    </div>
+                    <a href="" class="project-item__link">
+                      <div class="project-item__more-info">подробнее</div>
+                      <img
+                        src="@/assets/images/UI/arrow-2-right-white.svg"
+                        alt=""
+                        class="project-item__arrow"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
               <div class="our-projects__item project-item">
@@ -112,23 +117,28 @@
                   class="project-item__img"
                 />
                 <div class="project-item__about">
-                  <div class="project-item__title">ДОСУГОВЫЙ ЦЕНТР</div>
-                  <a href="" class="project-item__link">
-                    <div class="project-item__more-info">подробнее</div>
-                    <img
-                      src="@/assets/images/UI/arrow-2-right-white.svg"
-                      alt=""
-                      class="project-item__arrow"
-                    />
-                  </a>
+                  <div class="project-item__about-container">
+                    <div class="project-item__title">
+                      ВЕЕРНАЯ <br />
+                      ТЕМА
+                    </div>
+                    <a href="" class="project-item__link">
+                      <div class="project-item__more-info">подробнее</div>
+                      <img
+                        src="@/assets/images/UI/arrow-2-right-white.svg"
+                        alt=""
+                        class="project-item__arrow"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="our-projects__row"></div>
           </div>
-          <dp-button-black class="our-projects__button"
-            >все проекты</dp-button-black
-          >
+          <a href="" class="our-projects__button">
+            <dp-button-black>все проекты</dp-button-black>
+          </a>
         </div>
       </div>
     </div>
@@ -155,6 +165,9 @@ export default {
     padding-bottom: 90px;
   }
   &__tasks {
+  }
+  &__our-projects {
+    padding: 120px 0;
   }
 }
 //==============project==========================
@@ -220,7 +233,7 @@ export default {
 
   &__button {
     position: absolute;
-    top: calc(100% - 70px);
+    top: calc(100% - 72px);
     z-index: 2;
   }
 }
@@ -347,6 +360,100 @@ export default {
     font-weight: 400;
     font-size: 22px;
     line-height: 164%;
+  }
+}
+
+//===============our-projects======================
+.our-projects {
+  &__container {
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-weight: 300;
+    font-size: 64px;
+    line-height: 100%;
+
+    color: #bdbdbd;
+  }
+
+  &__title:not(:last-child) {
+    margin-bottom: 60px;
+  }
+
+  &__img-wrapper {
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+  }
+
+  &__button {
+    margin-top: 30px;
+    align-self: flex-end;
+  }
+}
+.project-item {
+  position: relative;
+  &__img {
+  }
+
+  &__about {
+    background: #333333;
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__about-container {
+    > *:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 100%;
+
+    color: #ffffff;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    max-width: 130px;
+    > *:not(:last-child) {
+      margin-right: 12px;
+    }
+  }
+
+  &__more-info {
+    font-size: 12px;
+    line-height: 100%;
+
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+
+    color: #ffffff;
+  }
+
+  &__arrow {
   }
 }
 </style>

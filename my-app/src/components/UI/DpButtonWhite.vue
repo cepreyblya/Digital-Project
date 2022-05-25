@@ -4,7 +4,7 @@
     <img
       src="@/assets/images/UI/arrow-2-right.svg"
       alt=""
-      class="button__arrow"
+      class="button-white__arrow"
     />
   </div>
 </template>
@@ -20,6 +20,7 @@ export default {};
   justify-content: center;
   padding: 23px 50px;
   max-width: 222px;
+  transition-duration: 1s;
 
   background: #ffffff;
 
@@ -32,6 +33,14 @@ export default {};
 
     letter-spacing: 0.2em;
     text-transform: uppercase;
+  }
+
+  &__arrow {
+  }
+}
+.button-white:hover {
+  background: rgb(218, 217, 217);
+  &__text {
   }
 
   &__arrow {

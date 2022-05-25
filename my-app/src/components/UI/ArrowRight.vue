@@ -14,7 +14,11 @@ export default {};
 
   background: #f9f9f9;
   border: 1px solid #f2f2f2;
+  transition-duration: 1s;
 
   cursor: pointer;
+}
+.arrow:hover {
+  background: #e1e0e0;
 }
 </style>

@@ -4,7 +4,7 @@
     <img
       src="@/assets/images/UI/arrow-2-right-white.svg"
       alt=""
-      class="button__arrow"
+      class="button-black__arrow"
     />
   </div>
 </template>
@@ -19,7 +19,7 @@ export default {};
   align-items: center;
   justify-content: center;
   padding: 23px 39px;
-  //max-width: 222px;
+  transition-duration: 1s;
 
   background: #000;
 
@@ -35,6 +35,12 @@ export default {};
 
     color: white;
   }
+
+  &__arrow {
+  }
+}
+.button-black:hover {
+  background: rgb(24, 24, 24);
 
   &__arrow {
   }

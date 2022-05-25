@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Gothic+A1&family=Open+Sans:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1&subset=cyrillic-ext&family=Open+Sans:wght@400;600&display=swap");
 @import "@/assets/styles/css/nullstyle.css";
 @font-face {
   font-family: "TTHoves";
@@ -39,6 +39,8 @@ export default {
   font-size: 12px;
   line-height: 100%;
   font-weight: 400;
+
+  cursor: default;
 }
 
 ._container {
