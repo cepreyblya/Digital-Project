@@ -24,6 +24,13 @@ export default {};
 
   background: #ffffff;
 
+  &:hover {
+    background: rgb(218, 217, 217);
+    > *:last-child {
+      margin-right: -10px;
+    }
+  }
+
   > *:not(:last-child) {
     margin-right: 12px;
   }
@@ -36,14 +43,7 @@ export default {};
   }
 
   &__arrow {
-  }
-}
-.button-white:hover {
-  background: rgb(218, 217, 217);
-  &__text {
-  }
-
-  &__arrow {
+    transition-duration: 1s;
   }
 }
 </style>

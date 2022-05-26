@@ -87,54 +87,27 @@
           <div class="our-projects__title">Наши проекты</div>
           <div class="our-projects__img-wrapper">
             <div class="our-projects__row">
-              <div class="our-projects__item project-item">
-                <img
-                  src="@/assets/images/main/our_projects/01.jpg"
-                  alt=""
-                  class="project-item__img"
-                />
-                <div class="project-item__about">
-                  <div class="project-item__about-container">
-                    <div class="project-item__title">
-                      ДОСУГОВЫЙ <br />
-                      ЦЕНТР
-                    </div>
-                    <a href="" class="project-item__link">
-                      <div class="project-item__more-info">подробнее</div>
-                      <img
-                        src="@/assets/images/UI/arrow-2-right-white.svg"
-                        alt=""
-                        class="project-item__arrow"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="our-projects__item project-item">
-                <img
-                  src="@/assets/images/main/our_projects/02.jpg"
-                  alt=""
-                  class="project-item__img"
-                />
-                <div class="project-item__about">
-                  <div class="project-item__about-container">
-                    <div class="project-item__title">
-                      ВЕЕРНАЯ <br />
-                      ТЕМА
-                    </div>
-                    <a href="" class="project-item__link">
-                      <div class="project-item__more-info">подробнее</div>
-                      <img
-                        src="@/assets/images/UI/arrow-2-right-white.svg"
-                        alt=""
-                        class="project-item__arrow"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
+              <dp-our-projects :projectImg="'01.jpg'" class="our-projects__item"
+                >ДОСУГОВЫЙ<br />
+                ЦЕНТР</dp-our-projects
+              >
+              <dp-our-projects :projectImg="'02.jpg'" class="our-projects__item"
+                >ВЕЕРНАЯ<br />ТЕМА</dp-our-projects
+              >
             </div>
-            <div class="our-projects__row"></div>
+            <div class="our-projects__row">
+              <dp-our-projects :projectImg="'03.jpg'" class="our-projects__item"
+                >ДОСУ<br />ГОВЫЙ<br />ЦЕНТР</dp-our-projects
+              >
+              <dp-our-projects :projectImg="'04.jpg'" class="our-projects__item"
+                >ДОСУГОВЫЙ<br />
+                ЦЕНТР</dp-our-projects
+              >
+              <dp-our-projects :projectImg="'05.jpg'" class="our-projects__item"
+                >ДОСУ<br />ГОВЫЙ<br />
+                ЦЕНТР</dp-our-projects
+              >
+            </div>
           </div>
           <a href="" class="our-projects__button">
             <dp-button-black>все проекты</dp-button-black>
@@ -146,13 +119,23 @@
 </template>
 
 <script>
+import DpOurProjects from "../components/items/DpOurProjects.vue";
 import ArrowLeft from "../components/UI/ArrowLeft.vue";
 import ArrowRight from "../components/UI/ArrowRight.vue";
 import DpButtonBlack from "../components/UI/DpButtonBlack.vue";
 import DpButtonWhite from "../components/UI/DpButtonWhite.vue";
 export default {
-  components: { ArrowRight, ArrowLeft, DpButtonWhite, DpButtonBlack },
+  components: {
+    ArrowRight,
+    ArrowLeft,
+    DpButtonWhite,
+    DpButtonBlack,
+    DpOurProjects,
+  },
   name: "MainPage",
+  data() {
+    return {};
+  },
 };
 </script>
 
@@ -235,6 +218,7 @@ export default {
     position: absolute;
     top: calc(100% - 72px);
     z-index: 2;
+    min-width: 222px;
   }
 }
 
@@ -379,13 +363,16 @@ export default {
     line-height: 100%;
 
     color: #bdbdbd;
-  }
 
-  &__title:not(:last-child) {
-    margin-bottom: 60px;
+    &:not(:last-child) {
+      margin-bottom: 60px;
+    }
   }
 
   &__img-wrapper {
+    > *:not(:last-child) {
+      padding-bottom: 30px;
+    }
   }
 
   &__row {
@@ -399,61 +386,6 @@ export default {
   &__button {
     margin-top: 30px;
     align-self: flex-end;
-  }
-}
-.project-item {
-  position: relative;
-  &__img {
-  }
-
-  &__about {
-    background: #333333;
-    opacity: 0.8;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  &__about-container {
-    > *:not(:last-child) {
-      margin-bottom: 8px;
-    }
-  }
-
-  &__title {
-    font-weight: 700;
-    font-size: 64px;
-    line-height: 100%;
-
-    color: #ffffff;
-  }
-
-  &__link {
-    display: flex;
-    align-items: center;
-    max-width: 130px;
-    > *:not(:last-child) {
-      margin-right: 12px;
-    }
-  }
-
-  &__more-info {
-    font-size: 12px;
-    line-height: 100%;
-
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-
-    color: #ffffff;
-  }
-
-  &__arrow {
   }
 }
 </style>

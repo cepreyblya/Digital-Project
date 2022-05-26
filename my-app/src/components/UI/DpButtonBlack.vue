@@ -20,8 +20,18 @@ export default {};
   justify-content: center;
   padding: 23px 39px;
   transition-duration: 1s;
+  min-width: 223px;
 
   background: #000;
+
+  &:hover {
+    background: rgb(24, 24, 24);
+    > *:last-child {
+      margin-right: -10px;
+    }
+    &__arrow {
+    }
+  }
 
   > *:not(:last-child) {
     margin-right: 12px;
@@ -37,12 +47,7 @@ export default {};
   }
 
   &__arrow {
-  }
-}
-.button-black:hover {
-  background: rgb(24, 24, 24);
-
-  &__arrow {
+    transition-duration: 1s;
   }
 }
 </style>
