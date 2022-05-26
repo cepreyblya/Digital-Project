@@ -22,10 +22,10 @@ export default {};
   transition-duration: 1s;
   min-width: 223px;
 
-  background: #000;
+  background: #333333;
 
   &:hover {
-    background: rgb(24, 24, 24);
+    background: rgb(9, 9, 9);
     > *:last-child {
       margin-right: -10px;
     }

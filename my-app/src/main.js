@@ -5,6 +5,8 @@ import store from '@/vuex/store'
 
 const app = createApp(App)
 
-app.use(store)
+
+app
+  .use(store)
   .use(router)
   .mount('#app')

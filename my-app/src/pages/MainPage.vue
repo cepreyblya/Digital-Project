@@ -115,6 +115,61 @@
         </div>
       </div>
     </div>
+    <div class="main-page__contact-us contact-us">
+      <div class="contact-us__container _container">
+        <div class="contact-us__body">
+          <div class="contact-us__title">Связаться с нами</div>
+          <div class="contact-us__content">
+            <form class="contact-us__form contact-form" action="#">
+              <div class="contact-form__input-wrapper">
+                <dp-input
+                  v-model="form.name"
+                  class="contact-form__input"
+                  placeholder="Имя"
+                />
+                <dp-input
+                  v-model="form.tel"
+                  class="contact-form__input"
+                  placeholder="Номер телефона*"
+                  type="tel"
+                  required
+                />
+                <dp-input
+                  v-model="form.email"
+                  class="contact-form__input"
+                  placeholder="E-mail*"
+                  type="email"
+                  required
+                />
+                <dp-input
+                  v-model="form.service"
+                  class="contact-form__input"
+                  placeholder="Интересующий товар/услуга"
+                />
+                <dp-input
+                  v-model="form.msg"
+                  class="contact-form__input"
+                  placeholder="Сообщение*"
+                  required
+                />
+              </div>
+              <dp-checkbox v-model="form.checked"
+                >Отправляя заявку Вы соглашаетесь с политикой
+                конфиденциальности</dp-checkbox
+              >
+              <button type="submit" class="contact-form__button">
+                <dp-button-black> отправить </dp-button-black>
+              </button>
+            </form>
+            <img
+              src="@/assets/images/main/contact_us/01.jpg"
+              alt="contact-us"
+              class="contact-us"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -124,6 +179,8 @@ import ArrowLeft from "../components/UI/ArrowLeft.vue";
 import ArrowRight from "../components/UI/ArrowRight.vue";
 import DpButtonBlack from "../components/UI/DpButtonBlack.vue";
 import DpButtonWhite from "../components/UI/DpButtonWhite.vue";
+import DpInput from "@/components/UI/DpInput.vue";
+import DpCheckbox from "../components/UI/DpCheckbox.vue";
 export default {
   components: {
     ArrowRight,
@@ -131,10 +188,21 @@ export default {
     DpButtonWhite,
     DpButtonBlack,
     DpOurProjects,
+    DpInput,
+    DpCheckbox,
   },
   name: "MainPage",
   data() {
-    return {};
+    return {
+      form: {
+        name: "",
+        tel: "",
+        email: "",
+        service: "",
+        msg: "",
+        checked: false,
+      },
+    };
   },
 };
 </script>
@@ -151,6 +219,9 @@ export default {
   }
   &__our-projects {
     padding: 120px 0;
+  }
+  &__contact-us {
+    padding-bottom: 120px;
   }
 }
 //==============project==========================
@@ -386,6 +457,54 @@ export default {
   &__button {
     margin-top: 30px;
     align-self: flex-end;
+  }
+}
+//=================contact-us======================
+.contact-us {
+  &__container {
+  }
+
+  &__body {
+  }
+
+  &__title {
+    margin-bottom: 22px;
+
+    font-weight: 300;
+    font-size: 64px;
+    line-height: 100%;
+
+    color: #bdbdbd;
+  }
+
+  &__content {
+    display: flex;
+    > *:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.contact-form {
+  &__input-wrapper {
+    display: flex;
+    flex-direction: column;
+    > *:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__input {
+  }
+
+  &__button {
+    align-self: start;
+    padding: 0;
+    border: none;
   }
 }
 </style>
