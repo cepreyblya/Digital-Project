@@ -3,26 +3,32 @@
     <div class="main-page__project project">
       <div class="project__container _container">
         <div class="project__content">
-          <h1 class="project__name">PROJECT<br /><span>NURTOWN</span></h1>
-          <div class="project__arrows">
-            <arrow-left />
-            <arrow-right />
-          </div>
-          <div class="project__pages-wrapper">
-            <div class="project__page">01</div>
-            <div class="project__page-break">
-              <img src="@/assets/images/UI/line.svg" alt="" />
-            </div>
-            <div class="project__page">02</div>
-          </div>
+          <h1 v-if="pages.list == 1" class="project__name">
+            PROJECT<br /><span>NURTOWN</span>
+          </h1>
+          <h1 v-else class="project__name">
+            PROJECT<br /><span>NURTOWN2</span>
+          </h1>
+          <dp-arrows @pageTransfer="setPage" :pages="pages" />
+          <dp-pages :pages="pages" />
         </div>
         <div class="project__media">
           <img
+            v-if="pages.list == 1"
             src="@/assets/images/main/01.jpg"
             alt="project"
             class="project__img"
           />
-          <a href="https://www.youtube.com/">
+          <img
+            v-else
+            src="@/assets/images/main/02.jpg"
+            alt="project"
+            class="project__img"
+          />
+          <a v-if="pages.list == 1" href="https://www.youtube.com/">
+            <dp-button-white class="project__button">взглянуть</dp-button-white>
+          </a>
+          <a v-else href="https://www.google.com/">
             <dp-button-white class="project__button">взглянуть</dp-button-white>
           </a>
         </div>
@@ -130,9 +136,12 @@
                 <dp-input
                   v-model="form.tel"
                   class="contact-form__input"
+                  @keypress="isNumber($event)"
                   placeholder="Номер телефона*"
                   type="tel"
                   required
+                  maxlength="12"
+                  minlength="10"
                 />
                 <dp-input
                   v-model="form.email"
@@ -175,25 +184,29 @@
 
 <script>
 import DpOurProjects from "../components/items/DpOurProjects.vue";
-import ArrowLeft from "../components/UI/ArrowLeft.vue";
-import ArrowRight from "../components/UI/ArrowRight.vue";
+import DpArrows from "../components/UI/DpArrows.vue";
 import DpButtonBlack from "../components/UI/DpButtonBlack.vue";
 import DpButtonWhite from "../components/UI/DpButtonWhite.vue";
 import DpInput from "@/components/UI/DpInput.vue";
 import DpCheckbox from "../components/UI/DpCheckbox.vue";
+import DpPages from "../components/items/DpPages.vue";
 export default {
   components: {
-    ArrowRight,
-    ArrowLeft,
+    DpArrows,
     DpButtonWhite,
     DpButtonBlack,
     DpOurProjects,
     DpInput,
     DpCheckbox,
+    DpPages,
   },
   name: "MainPage",
   data() {
     return {
+      pages: {
+        list: 1,
+        totalPages: 2,
+      },
       form: {
         name: "",
         tel: "",
@@ -203,6 +216,23 @@ export default {
         checked: false,
       },
     };
+  },
+  methods: {
+    isNumber(evt) {
+      var charCode = evt.which ? evt.which : evt.keyCode;
+      if (
+        charCode > 31 &&
+        (charCode < 48 || charCode > 57) &&
+        charCode !== 43
+      ) {
+        evt.preventDefault();
+      } else {
+        return true;
+      }
+    },
+    setPage(page) {
+      this.pages.list = page;
+    },
   },
 };
 </script>
@@ -251,31 +281,6 @@ export default {
     font-weight: 700;
 
     color: #333333;
-  }
-
-  &__arrows {
-    display: flex;
-    > *:not(:last-child) {
-      margin-right: 23px;
-    }
-  }
-
-  &__pages-wrapper {
-    display: flex;
-    align-items: center;
-    > *:not(:last-child) {
-      margin-right: 26px;
-    }
-  }
-
-  &__page {
-    font-size: 24px;
-    line-height: 100%;
-
-    color: #bdbdbd;
-  }
-
-  &__page-break {
   }
 
   &__media {
