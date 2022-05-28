@@ -61,6 +61,9 @@ export default createStore({
     CHANGE_TO_ACTIVE_CONTACTS({ commit }) {
       commit('SET_ACTIVE_CONTACTS')
     },
+    PUSH_TO_FORM({ commit, form }) {
+      commit('PUSH_TO_FORM', form)
+    },
   },
   getters: {
     MAIN(state) {

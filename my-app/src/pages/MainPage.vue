@@ -115,9 +115,9 @@
               >
             </div>
           </div>
-          <a href="" class="our-projects__button">
+          <router-link to="/projects" class="our-projects__button">
             <dp-button-black>все проекты</dp-button-black>
-          </a>
+          </router-link>
         </div>
       </div>
     </div>

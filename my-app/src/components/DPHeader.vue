@@ -63,13 +63,7 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   name: "DpHeader",
   data() {
-    return {
-      //isActiveMain: true,
-      //isActiveGallery: false,
-      //isActiveProjects: false,
-      //isActiveSertificates: false,
-      //isActiveContacts: false,
-    };
+    return {};
   },
   computed: {
     ...mapGetters(["MAIN", "GALLERY", "PROJECTS", "SERTIFICATES", "CONTACTS"]),
@@ -82,41 +76,6 @@ export default {
       "CHANGE_TO_ACTIVE_SERTIFICATES",
       "CHANGE_TO_ACTIVE_CONTACTS",
     ]),
-    //itemActiveMain() {
-    //  this.isActiveMain = true;
-    //  this.isActiveGallery = false;
-    //  this.isActiveProjects = false;
-    //  this.isActiveSertificates = false;
-    //  this.isActiveContacts = false;
-    //},
-    //itemActiveGallery() {
-    //  this.isActiveMain = false;
-    //  this.isActiveGallery = true;
-    //  this.isActiveProjects = false;
-    //  this.isActiveSertificates = false;
-    //  this.isActiveContacts = false;
-    //},
-    //itemActiveProjects() {
-    //  this.isActiveMain = false;
-    //  this.isActiveGallery = false;
-    //  this.isActiveProjects = true;
-    //  this.isActiveSertificates = false;
-    //  this.isActiveContacts = false;
-    //},
-    //itemActiveSertificates() {
-    //  this.isActiveMain = false;
-    //  this.isActiveGallery = false;
-    //  this.isActiveProjects = false;
-    //  this.isActiveSertificates = true;
-    //  this.isActiveContacts = false;
-    //},
-    //itemActiveContacts() {
-    //  this.isActiveMain = false;
-    //  this.isActiveGallery = false;
-    //  this.isActiveProjects = false;
-    //  this.isActiveSertificates = false;
-    //  this.isActiveContacts = true;
-    //},
   },
 };
 </script>

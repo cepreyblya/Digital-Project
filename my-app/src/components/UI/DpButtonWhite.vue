@@ -24,6 +24,8 @@ export default {};
 
   background: #ffffff;
 
+  cursor: pointer;
+
   &:hover {
     background: rgb(218, 217, 217);
     > *:last-child {

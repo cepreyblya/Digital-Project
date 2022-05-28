@@ -36,6 +36,7 @@ export default {
 .checkbox-wrapper {
   display: flex;
   align-items: center;
+
   &:not(:last-child) {
     margin-top: 20px;
     margin-bottom: 30px;
@@ -83,6 +84,7 @@ export default {
   }
 
   &__label {
+    cursor: pointer;
     font-size: 14px;
     line-height: 121%;
     letter-spacing: 0.03em;

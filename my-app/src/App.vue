@@ -14,6 +14,18 @@ export default {
     DpFooter,
     DpHeader,
   },
+  data() {
+    return {
+      form: {
+        name: "",
+        tel: "",
+        email: "",
+        service: "",
+        msg: "",
+        checked: false,
+      },
+    };
+  },
 };
 </script>
 
