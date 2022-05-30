@@ -80,7 +80,6 @@ export default {
         checked: false,
       },
       dialogVisible: false,
-      zalupa: "123123123123123",
     };
   },
   props: {

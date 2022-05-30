@@ -59,6 +59,7 @@ export default {
 .project-item {
   position: relative;
   &__img {
+    width: 100%;
   }
 
   &__about {

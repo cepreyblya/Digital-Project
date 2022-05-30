@@ -42,7 +42,7 @@
               <img src="@/assets/images/main/about/01.jpg" alt="about" />
               <img src="@/assets/images/main/about/02.jpg" alt="about" />
             </div>
-            <div class="about__column" style="margin-top: 30px">
+            <div class="about__column">
               <img src="@/assets/images/main/about/03.jpg" alt="about" />
             </div>
           </div>
@@ -121,12 +121,16 @@
         </div>
       </div>
     </div>
-    <div class="main-page__contact-us contact-us">
+    <!--<div class="main-page__contact-us contact-us">
       <div class="contact-us__container _container">
         <div class="contact-us__body">
           <div class="contact-us__title">Связаться с нами</div>
           <div class="contact-us__content">
-            <form class="contact-us__form contact-form" action="#">
+            <form
+              class="contact-us__form contact-form"
+              @submit.prevent
+              action="#"
+            >
               <div class="contact-form__input-wrapper">
                 <dp-input
                   v-model="form.name"
@@ -166,7 +170,7 @@
                 >Отправляя заявку Вы соглашаетесь с политикой
                 конфиденциальности</dp-checkbox
               >
-              <button type="submit" class="contact-form__button">
+              <button class="contact-form__button" @click="formScanner">
                 <dp-button-black> отправить </dp-button-black>
               </button>
             </form>
@@ -178,8 +182,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
   </main>
+  <dp-dialog-success v-model:show="dialogVisible"></dp-dialog-success>
 </template>
 
 <script>
@@ -187,18 +192,20 @@ import DpOurProjects from "../components/items/DpOurProjects.vue";
 import DpArrows from "../components/UI/DpArrows.vue";
 import DpButtonBlack from "../components/UI/DpButtonBlack.vue";
 import DpButtonWhite from "../components/UI/DpButtonWhite.vue";
-import DpInput from "@/components/UI/DpInput.vue";
-import DpCheckbox from "../components/UI/DpCheckbox.vue";
+//import DpInput from "@/components/UI/DpInput.vue";
+//import DpCheckbox from "../components/UI/DpCheckbox.vue";
 import DpPages from "../components/items/DpPages.vue";
+//import DpDialogSuccess from "@/components/UI/DpDialogSuccess.vue";
 export default {
   components: {
     DpArrows,
     DpButtonWhite,
     DpButtonBlack,
     DpOurProjects,
-    DpInput,
-    DpCheckbox,
+    //DpInput,
+    //DpCheckbox,
     DpPages,
+    //DpDialogSuccess,
   },
   name: "MainPage",
   data() {
@@ -215,15 +222,16 @@ export default {
         msg: "",
         checked: false,
       },
+      dialogVisible: false,
     };
   },
   methods: {
     isNumber(evt) {
       var charCode = evt.which ? evt.which : evt.keyCode;
       if (
-        charCode > 31 &&
-        (charCode < 48 || charCode > 57) &&
-        charCode !== 43
+        (charCode > 31) &
+        (charCode < 48 || charCode > 57) &
+        (charCode !== 43)
       ) {
         evt.preventDefault();
       } else {
@@ -232,6 +240,18 @@ export default {
     },
     setPage(page) {
       this.pages.list = page;
+    },
+    formScanner() {
+      if (
+        (this.form.tel.length > 10) &
+        (this.form.email.length != 0) &
+        (this.form.email.indexOf("@") > -1) &
+        (this.form.msg.length != 0) &
+        this.form.checked
+      ) {
+        this.dialogVisible = true;
+        this.$emit("update:show", false);
+      }
     },
   },
 };
@@ -260,10 +280,15 @@ export default {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+
+    > *:not(:last-child) {
+      margin-bottom: 30px;
+    }
   }
 
   &__content {
     margin-top: 336px;
+    margin-right: 40px;
     > *:not(:last-child) {
       margin-bottom: 90px;
     }
@@ -296,6 +321,27 @@ export default {
     z-index: 2;
     min-width: 222px;
   }
+
+  @media (max-width: 1196px) {
+    &__content {
+      margin-top: 56px;
+      > *:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+    &__media {
+      width: 100%;
+    }
+
+    &__img {
+      width: 100%;
+    }
+  }
+  @media (max-width: 378px) {
+    &__name {
+      font-size: 50px;
+    }
+  }
 }
 
 //====================about====================
@@ -310,15 +356,11 @@ export default {
     margin: 0 -15px;
     padding: 30px 0;
     background: #fbfbfb;
-
-    > * {
-      margin: 0 15px;
-    }
   }
 
   &__img-wrapper {
     display: flex;
-    margin: 0 -15px;
+    margin: 0 15px;
     > * {
       margin: -15px 15px;
     }
@@ -327,6 +369,11 @@ export default {
   &__column {
     display: flex;
     flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    &:last-child {
+      margin-top: 30px;
+    }
     > * {
       margin: 15px 0;
     }
@@ -362,6 +409,14 @@ export default {
   &__link {
     max-width: 220px;
   }
+
+  @media (max-width: 1028px) {
+    &__body {
+      > *:last-child {
+        margin-bottom: 30px;
+      }
+    }
+  }
 }
 
 //==================tasks==================
@@ -386,12 +441,12 @@ export default {
   &__objective-wrapper {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   &__objective {
     display: flex;
     align-items: center;
-    max-height: 144px;
 
     > *:not(:last-child) {
       margin-right: 30px;
@@ -420,6 +475,21 @@ export default {
     font-weight: 400;
     font-size: 22px;
     line-height: 164%;
+  }
+  @media (max-width: 1012px) {
+    &__body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &__objective-wrapper {
+      align-items: center;
+      justify-content: center;
+
+      > *:not(:last-child) {
+        margin-bottom: 80px;
+      }
+    }
   }
 }
 
@@ -454,9 +524,25 @@ export default {
   &__row {
     display: flex;
     justify-content: space-between;
+    > *:not(:last-child) {
+      margin-right: 15px;
+    }
   }
 
   &__item {
+  }
+
+  @media (min-width: 320px) and (max-width: 500px) {
+    &__row {
+      flex-wrap: wrap;
+      > *:not(:last-child) {
+        margin-right: 0px;
+      }
+    }
+    &__item {
+      width: 100%;
+      max-height: 50%;
+    }
   }
 
   &__button {

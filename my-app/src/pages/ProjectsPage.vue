@@ -20,9 +20,9 @@
                   printer took a galley of type and scrambled it to make a type
                   specimen book.
                 </div>
-                <a href="">
+                <router-link to="/projects/parking">
                   <dp-button-white>смотреть</dp-button-white>
-                </a>
+                </router-link>
               </div>
             </div>
             <div class="projects-page__item project-item">
@@ -150,7 +150,9 @@ export default {
   }
 }
 .project-item {
+  //flex-wrap: wrap;
   &__img {
+    width: 100%;
   }
 
   &__content {
@@ -178,6 +180,19 @@ export default {
 
     &:not(:last-child) {
       margin-bottom: 60px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    & {
+      flex-wrap: wrap;
+    }
+    &__title {
+      font-size: 32px;
+    }
+    &__content {
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 }

@@ -3,6 +3,7 @@ import GalleryPage from "@/pages/GalleryPage";
 import ProjectsPage from "@/pages/ProjectsPage";
 import SertificatesPage from "@/pages/SertificatesPage";
 import ContactsPage from "@/pages/ContactsPage";
+import ParkingPage from "@/pages/projects/ParkingPage";
 import { createRouter, createWebHistory } from "vue-router";
 
 
@@ -26,6 +27,10 @@ const routes = [
   {
     path: '/contacts',
     component: ContactsPage,
+  },
+  {
+    path: '/projects/parking',
+    component: ParkingPage,
   },
 ]
 
