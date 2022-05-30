@@ -121,7 +121,7 @@
         </div>
       </div>
     </div>
-    <!--<div class="main-page__contact-us contact-us">
+    <div class="main-page__contact-us contact-us">
       <div class="contact-us__container _container">
         <div class="contact-us__body">
           <div class="contact-us__title">Связаться с нами</div>
@@ -182,7 +182,7 @@
           </div>
         </div>
       </div>
-    </div>-->
+    </div>
   </main>
   <dp-dialog-success v-model:show="dialogVisible"></dp-dialog-success>
 </template>
@@ -192,20 +192,20 @@ import DpOurProjects from "../components/items/DpOurProjects.vue";
 import DpArrows from "../components/UI/DpArrows.vue";
 import DpButtonBlack from "../components/UI/DpButtonBlack.vue";
 import DpButtonWhite from "../components/UI/DpButtonWhite.vue";
-//import DpInput from "@/components/UI/DpInput.vue";
-//import DpCheckbox from "../components/UI/DpCheckbox.vue";
+import DpInput from "@/components/UI/DpInput.vue";
+import DpCheckbox from "../components/UI/DpCheckbox.vue";
 import DpPages from "../components/items/DpPages.vue";
-//import DpDialogSuccess from "@/components/UI/DpDialogSuccess.vue";
+import DpDialogSuccess from "@/components/UI/DpDialogSuccess.vue";
 export default {
   components: {
     DpArrows,
     DpButtonWhite,
     DpButtonBlack,
     DpOurProjects,
-    //DpInput,
-    //DpCheckbox,
+    DpInput,
+    DpCheckbox,
     DpPages,
-    //DpDialogSuccess,
+    DpDialogSuccess,
   },
   name: "MainPage",
   data() {
@@ -537,11 +537,11 @@ export default {
       flex-wrap: wrap;
       > *:not(:last-child) {
         margin-right: 0px;
+        margin-bottom: 30px;
       }
     }
     &__item {
       width: 100%;
-      max-height: 50%;
     }
   }
 
@@ -572,6 +572,9 @@ export default {
     display: flex;
     > *:not(:last-child) {
       margin-right: 30px;
+    }
+    @media (max-width: 1060px) {
+      flex-wrap: wrap;
     }
   }
 
