@@ -57,6 +57,18 @@ export default {
     &:hover {
       background: #e1e0e0;
     }
+
+    & img {
+      transition-duration: 1s;
+    }
+
+    &:first-child:hover img {
+      transform: translateX(-4px);
+    }
+
+    &:last-child:hover img {
+      transform: translateX(4px);
+    }
   }
 }
 </style>

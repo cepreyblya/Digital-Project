@@ -108,7 +108,7 @@ export default {};
       margin-right: 30px;
     }
     & img {
-      max-height: 428px;
+      max-width: 419px;
       width: 100%;
     }
   }

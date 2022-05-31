@@ -6,50 +6,38 @@
           <img src="..\assets\images\header\01.svg" alt="logo" />
         </div>
         <nav class="header__nav-items-wrapper">
-          <div class="header__nav-item nav-item" @click="CHANGE_TO_ACTIVE_MAIN">
-            <div v-if="MAIN" class="nav-item__line" />
+          <div class="header__nav-item nav-item">
+            <div v-if="$route.path == '/'" class="nav-item__line" />
             <router-link to="/" class="nav-item__link">главная</router-link>
-            <div v-if="MAIN" class="nav-item__line" />
+            <div v-if="$route.path == '/'" class="nav-item__line" />
           </div>
-          <div
-            class="header__nav-item nav-item"
-            @click="CHANGE_TO_ACTIVE_GALLERY"
-          >
-            <div v-if="GALLERY" class="nav-item__line" />
+          <div class="header__nav-item nav-item">
+            <div v-if="$route.path == '/gallery'" class="nav-item__line" />
             <router-link to="/gallery" class="nav-item__link"
               >галерея</router-link
             >
-            <div v-if="GALLERY" class="nav-item__line" />
+            <div v-if="$route.path == '/gallery'" class="nav-item__line" />
           </div>
-          <div
-            class="header__nav-item nav-item"
-            @click="CHANGE_TO_ACTIVE_PROJECTS"
-          >
-            <div v-if="PROJECTS" class="nav-item__line" />
+          <div class="header__nav-item nav-item">
+            <div v-if="$route.path == '/projects'" class="nav-item__line" />
             <router-link to="/projects" class="nav-item__link"
               >проекты</router-link
             >
-            <div v-if="PROJECTS" class="nav-item__line" />
+            <div v-if="$route.path == '/projects'" class="nav-item__line" />
           </div>
-          <div
-            class="header__nav-item nav-item"
-            @click="CHANGE_TO_ACTIVE_SERTIFICATES"
-          >
-            <div v-if="SERTIFICATES" class="nav-item__line" />
+          <div class="header__nav-item nav-item">
+            <div v-if="$route.path == '/sertificates'" class="nav-item__line" />
             <router-link to="/sertificates" class="nav-item__link"
               >сертификаты</router-link
             >
-            <div v-if="SERTIFICATES" class="nav-item__line" />
+            <div v-if="$route.path == '/sertificates'" class="nav-item__line" />
           </div>
-          <div
-            class="header__nav-item nav-item"
-            @click="CHANGE_TO_ACTIVE_CONTACTS"
-          >
-            <div v-if="CONTACTS" class="nav-item__line" />
+          <div class="header__nav-item nav-item">
+            <div v-if="$route.path == '/contacts'" class="nav-item__line" />
             <router-link to="/contacts" class="nav-item__link"
               >контакты</router-link
             >
-            <div v-if="CONTACTS" class="nav-item__line" />
+            <div v-if="$route.path == '/contacts'" class="nav-item__line" />
           </div>
         </nav>
       </div>
@@ -58,25 +46,13 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
-
 export default {
   name: "DpHeader",
   data() {
     return {};
   },
-  computed: {
-    ...mapGetters(["MAIN", "GALLERY", "PROJECTS", "SERTIFICATES", "CONTACTS"]),
-  },
-  methods: {
-    ...mapActions([
-      "CHANGE_TO_ACTIVE_MAIN",
-      "CHANGE_TO_ACTIVE_GALLERY",
-      "CHANGE_TO_ACTIVE_PROJECTS",
-      "CHANGE_TO_ACTIVE_SERTIFICATES",
-      "CHANGE_TO_ACTIVE_CONTACTS",
-    ]),
-  },
+  computed: {},
+  methods: {},
 };
 </script>
 
