@@ -19,13 +19,12 @@
           />
           <dp-input
             v-model="form.tel"
+            v-maska="'+7(###)###-##-##'"
             class="contact-form__input"
-            @keypress="isNumber($event)"
             placeholder="Номер телефона*"
             type="tel"
             required
-            maxlength="12"
-            minlength="10"
+            minlength="16"
           />
           <dp-input
             v-model="form.email"
@@ -89,18 +88,18 @@ export default {
     },
   },
   methods: {
-    isNumber(evt) {
-      var charCode = evt.which ? evt.which : evt.keyCode;
-      if (
-        charCode > 31 &&
-        (charCode < 48 || charCode > 57) &&
-        charCode !== 43
-      ) {
-        evt.preventDefault();
-      } else {
-        return true;
-      }
-    },
+    //isNumber(evt) {
+    //  var charCode = evt.which ? evt.which : evt.keyCode;
+    //  if (
+    //    charCode > 31 &&
+    //    (charCode < 48 || charCode > 57) &&
+    //    charCode !== 43
+    //  ) {
+    //    evt.preventDefault();
+    //  } else {
+    //    return true;
+    //  }
+    //},
     hideDialog() {
       this.$emit("update:show", false);
     },

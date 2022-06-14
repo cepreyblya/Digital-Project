@@ -140,12 +140,12 @@
                 <dp-input
                   v-model="form.tel"
                   class="contact-form__input"
-                  @keypress="isNumber($event)"
+                  v-maska="'+7(###)###-##-##'"
                   placeholder="Номер телефона*"
                   type="tel"
                   required
-                  maxlength="12"
-                  minlength="10"
+                  minlength="16"
+                  maxlength="16"
                 />
                 <dp-input
                   v-model="form.email"
@@ -184,7 +184,10 @@
       </div>
     </div>
   </main>
-  <dp-dialog-success v-model:show="dialogVisible"></dp-dialog-success>
+  <dp-dialog-success
+    v-model:show="dialogVisible"
+    @clearInputs="clearInputs"
+  ></dp-dialog-success>
 </template>
 
 <script>
@@ -226,26 +229,36 @@ export default {
     };
   },
   methods: {
-    isNumber(evt) {
-      var charCode = evt.which ? evt.which : evt.keyCode;
-      if (
-        (charCode > 31) &
-        (charCode < 48 || charCode > 57) &
-        (charCode !== 43)
-      ) {
-        evt.preventDefault();
-      } else {
-        return true;
-      }
+    //isNumber(evt) {
+    //  var charCode = evt.which ? evt.which : evt.keyCode;
+    //  if (
+    //    (charCode > 31) &
+    //    (charCode < 48 || charCode > 57) &
+    //    (charCode !== 43)
+    //  ) {
+    //    evt.preventDefault();
+    //  } else {
+    //    return true;
+    //  }
+    //},
+    clearInputs() {
+      this.form.name = "";
+      this.form.tel = "";
+      this.form.email = "";
+      this.form.service = "";
+      this.form.msg = "";
+      this.form.checked = false;
     },
     setPage(page) {
       this.pages.list = page;
     },
     formScanner() {
+      const reg = new RegExp("[A-z0-9]+[@][A-z]+[.][A-z]+");
+      console.log(typeof this.form.email);
       if (
         (this.form.tel.length > 10) &
         (this.form.email.length != 0) &
-        (this.form.email.indexOf("@") > -1) &
+        reg.test(this.form.email) &
         (this.form.msg.length != 0) &
         this.form.checked
       ) {

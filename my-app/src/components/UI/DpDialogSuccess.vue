@@ -43,6 +43,7 @@ export default {
   methods: {
     hideDialog() {
       this.$emit("update:show", false);
+      this.$emit("clearInputs");
     },
   },
 };
@@ -75,6 +76,7 @@ export default {
   }
 
   &__close {
+    cursor: pointer;
   }
 
   &__success-wrapper {

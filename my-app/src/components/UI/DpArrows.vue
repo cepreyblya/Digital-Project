@@ -1,10 +1,10 @@
 <template>
   <div class="arrow-wrapper">
     <div class="arrow-wrapper__arrow" @click="pageDecrement">
-      <img src="@/assets/images/UI/arrow-2-left.svg" alt="" />
+      <img src="@/assets/images/UI/arrow-2-left.svg" alt="arrow" />
     </div>
     <div class="arrow-wrapper__arrow" @click="pageIncrement">
-      <img src="@/assets/images/UI/arrow-2-right.svg" alt="" />
+      <img src="@/assets/images/UI/arrow-2-right.svg" alt="arrow" />
     </div>
   </div>
 </template>
