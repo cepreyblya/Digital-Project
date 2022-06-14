@@ -40,6 +40,7 @@ export default {
     position: absolute;
     background: white;
     height: 50%;
+    width: 100%;
     top: 49.3%;
   }
 }

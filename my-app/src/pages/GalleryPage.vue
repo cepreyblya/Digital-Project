@@ -8,7 +8,7 @@
         <div class="gallery-page__img-wrapper">
           <div v-if="pages.list == 1" class="gallery-page__page">
             <dp-gallery :galleryImg="'01.jpg'"
-              >Описание или пояснение к изображению.</dp-gallery
+              >Описание или пояснение.</dp-gallery
             >
             <dp-gallery :galleryImg="'02.jpg'"
               >Описание или пояснение к изображению.</dp-gallery
